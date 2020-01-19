@@ -17,7 +17,7 @@ export class RestDataSource {
     //this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
   }
   getProducts(): Observable<Product[]> {
-    return new Observable<Product[]>() ;
+    return new Observable<Product[]>();
      //this.http.get<Product[]>(this.baseUrl + "products");
   }
   saveOrder(order: Order): Observable<Order> {
