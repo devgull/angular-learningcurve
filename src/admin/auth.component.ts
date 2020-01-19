@@ -11,7 +11,7 @@ export class AuthComponent {
   public errorMessage: string;
 
   constructor(private router: Router, private auth: AuthService) {}
-  
+
   authenticate(form: NgForm) {
     if (form.valid) {
       this.auth
