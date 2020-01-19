@@ -1,53 +1,90 @@
-module.exports = function () {
+module.exports = function() {
+  return {
+    products: [
+      {
+        id: 1,
+        name: "Kayak",
+        category: "Watersports",
 
-    return { 
+        description: "A boat for one person",
+        price: 275
+      },
 
-        products: [
+      {
+        id: 2,
+        name: "Lifejacket",
+        category: "Watersports",
 
-            { id: 1, name: "Kayak", category: "Watersports", 
+        description: "Protective and fashionable",
+        price: 48.95
+      },
 
-                description: "A boat for one person", price: 275 },
+      {
+        id: 3,
+        name: "Soccer Ball",
+        category: "Soccer",
 
-            { id: 2, name: "Lifejacket", category: "Watersports", 
+        description: "FIFA-approved size and weight",
+        price: 19.5
+      },
 
-                description: "Protective and fashionable", price: 48.95 },
+      {
+        id: 4,
+        name: "Corner Flags",
+        category: "Soccer",
 
-            { id: 3, name: "Soccer Ball", category: "Soccer", 
+        description: "Give your playing field a professional touch",
 
-                description: "FIFA-approved size and weight", price: 19.50 },
+        price: 34.95
+      },
 
-            { id: 4, name: "Corner Flags", category: "Soccer", 
+      {
+        id: 5,
+        name: "Stadium",
+        category: "Soccer",
 
-                description: "Give your playing field a professional touch", 
+        description: "Flat-packed 35,000-seat stadium",
+        price: 79500
+      },
 
-                price: 34.95 },
+      {
+        id: 6,
+        name: "Thinking Cap",
+        category: "Chess",
 
-            { id: 5, name: "Stadium", category: "Soccer", 
+        description: "Improve brain efficiency by 75%",
+        price: 16
+      },
 
-                description: "Flat-packed 35,000-seat stadium", price: 79500 },
+      {
+        id: 7,
+        name: "Unsteady Chair",
+        category: "Chess",
 
-            { id: 6, name: "Thinking Cap", category: "Chess", 
+        description: "Secretly give your opponent a disadvantage",
 
-                description: "Improve brain efficiency by 75%", price: 16 },
+        price: 29.95
+      },
 
-            { id: 7, name: "Unsteady Chair", category: "Chess", 
+      {
+        id: 8,
+        name: "Human Chess Board",
+        category: "Chess",
 
-                description: "Secretly give your opponent a disadvantage", 
+        description: "A fun game for the family",
+        price: 75
+      },
 
-                price: 29.95 },
+      {
+        id: 9,
+        name: "Bling Bling King",
+        category: "Chess",
 
-            { id: 8, name: "Human Chess Board", category: "Chess", 
+        description: "Gold-plated, diamond-studded King",
+        price: 1200
+      }
+    ],
 
-                description: "A fun game for the family", price: 75 },
-
-            { id: 9, name: "Bling Bling King", category: "Chess", 
-
-                description: "Gold-plated, diamond-studded King", price: 1200 }
-
-        ],
-
-        orders: []
-
-    }
-
-}
+    orders: []
+  };
+};
