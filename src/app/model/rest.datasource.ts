@@ -5,6 +5,7 @@ import { Product } from "./product.model";
 import { Cart } from "./cart.model";
 import { Order } from "./order.model";
 import { map } from "rxjs/operators";
+import { HttpHeaders } from '@angular/common/http';
 
 const PROTOCOL = "http";
 const PORT = 3500;
@@ -16,15 +17,17 @@ export class RestDataSource {
     //this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
   }
   getProducts(): Observable<Product[]> {
-    return this.products;
+    return new Observable<Product[]>() ;
      //this.http.get<Product[]>(this.baseUrl + "products");
   }
   saveOrder(order: Order): Observable<Order> {
-    return new Order[]();
+    this.orders.push(order);
+    return new Observable<Order>();
     //this.http.post<Order>(this.baseUrl + "orders", order);
   }
   authenticate(user: string, pass: string): Observable<boolean> {
-    return true;
+    let obs = new Observable<boolean>();
+    return obs;
     //  this.http
     //   .post<any>(this.baseUrl + "login", { name: user, password: pass })
     //   .pipe(
@@ -34,9 +37,79 @@ export class RestDataSource {
     //     })
     //   );
   }
-}
 
-const products = [
+   saveProduct(product: Product): Observable<Product> {
+
+        return this.http.post<Product>(this.baseUrl + "products",
+
+            product, this.getOptions());
+
+    }
+
+
+
+    updateProduct(product): Observable<Product> {
+
+        return this.http.put<Product>(`${this.baseUrl}products/${product.id}`,
+
+            product, this.getOptions());
+
+    }
+
+
+
+    deleteProduct(id: number): Observable<Product> {
+
+        return this.http.delete<Product>(`${this.baseUrl}products/${id}`,
+
+            this.getOptions());
+
+    }
+
+
+
+    getOrders(): Observable<Order[]> {
+
+        return this.http.get<Order[]>(this.baseUrl + "orders", this.getOptions());
+
+    }
+
+
+
+    deleteOrder(id: number): Observable<Order> {
+
+        return this.http.delete<Order>(`${this.baseUrl}orders/${id}`,
+
+            this.getOptions());
+
+    }
+
+    updateOrder(order: Order): Observable<Order> {
+
+        return this.http.put<Order>(`${this.baseUrl}orders/${order.id}`,
+
+            this.getOptions());
+
+    }
+
+
+
+    private getOptions() {
+
+        return {
+
+            headers: new HttpHeaders({
+
+                "Authorization": `Bearer<${this.auth_token}>`
+
+            })
+
+        }
+
+    }
+
+ orders = [];
+ products = [
       {
         id: 1,
         name: "Kayak",
@@ -120,3 +193,5 @@ const products = [
         price: 1200
       }
     ];
+}
+
