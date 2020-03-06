@@ -19,7 +19,7 @@ import { MatInputModule, MatDatepickerModule, MatFormFieldModule, MatNativeDateM
     MatInputModule,
     MatDatepickerModule,
     MatFormFieldModule,
-    
+    MatNativeDateModule,
     RouterModule.forRoot([
        {
         path: "main",
