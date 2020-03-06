@@ -9,12 +9,17 @@ import { CartDetailComponent } from "./store/cartDetail.component";
 import { RouterModule } from "@angular/router";
 import { StoreFirstGuard } from "./storeFirst.guard";
 import { MaterialModule } from './components/shared/material.module';
+import { MatInputModule, MatDatepickerModule, MatFormFieldModule, MatNativeDateModule } from '@angular/material';
 
 @NgModule({
   imports: [
     BrowserModule,
     StoreModule,
     MaterialModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    
     RouterModule.forRoot([
        {
         path: "main",
