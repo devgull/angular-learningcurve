@@ -1,0 +1,76 @@
+/*
+ * Application global variables.
+ */
+
+// Angular Material custom theme
+// See https://material.angular.io/guide/theming for more details.
+//
+// You can also read https://medium.com/@tomastrajan/the-complete-guide-to-angular-material-themes-4d165a9d24d1
+// for more insight about Angular Material theming.
+
+@import "~@angular/material/theming";
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+$primary: #7c44ed;
+// below defines your custom color to build a theme palette from
+$my-violet: (
+  50: #7c44ed,
+  100: #8f5cf5,
+  200: #5828b9,
+  300: #8f5cf5,
+  400: #8f5cf5,
+  500: #8f5cf5,
+  600: #8f5cf5,
+  700: #8f5cf5,
+  800: #8f5cf5,
+  900: #8f5cf5,
+  A100: #8f5cf5,
+  A200: #8f5cf5,
+  A400: #8f5cf5,
+  A700: #8f5cf5,
+  contrast: (
+    50: white,
+    100: white,
+    200: white,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: white,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+$primary: #20273d;
+$primary-dark: #191e30;
+$secondary: #009b90;
+$highlight: #48d1cc;
+$lightgrey: lightgrey;
+$darkgrey: darkgrey;
+$grey: grey;
+$pink: #e91e63;
+
+$app-primary: mat-palette($my-violet);
+$app-accent:  mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$app-warn:    mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+
+// Mixins
+
+@mixin gradient($from, $to) {
+    background: $to; /* Old browsers */
+    background: -moz-linear-gradient(left, $from 0%, $to 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, $from 0%,$to 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, $from 0%,$to 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  }

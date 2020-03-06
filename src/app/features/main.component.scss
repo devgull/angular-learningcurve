@@ -1,0 +1,28 @@
+@import "src/theme/theme-variables";
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.event-menu {
+    list-style: none;
+    background: #eaeaea;
+    border-radius: 2px;
+    padding: 10px 0;
+}
+
+.event-menu ul {
+    padding: 0;
+    list-style: none;
+}
+
+.event-menu ul>li>a {
+    display: block;
+    padding: 5px 15px;
+    color: $grey;
+    text-decoration: none !important;
+}
+
+.event-menu ul>li>a.active {
+    color: $pink;
+}
