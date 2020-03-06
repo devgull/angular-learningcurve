@@ -8,12 +8,13 @@ import { CheckoutComponent } from "./store/checkout.component";
 import { CartDetailComponent } from "./store/cartDetail.component";
 import { RouterModule } from "@angular/router";
 import { StoreFirstGuard } from "./storeFirst.guard";
+import { MaterialModule } from './components/shared/material.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     StoreModule,
-
+    MaterialModule,
     RouterModule.forRoot([
        {
         path: "main",
@@ -51,7 +52,9 @@ import { StoreFirstGuard } from "./storeFirst.guard";
       { path: "**", redirectTo: "/main" }
     ])
   ],
-
+  exports: [
+    MaterialModule
+  ],
   providers: [StoreFirstGuard],
 
   declarations: [AppComponent, MainComponent],
