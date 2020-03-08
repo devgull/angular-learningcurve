@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+//https://codewithmosh.com/courses/222856/lectures/3468169
 
+import { Component } from '@angular/core';
 
 @Component({
   selector: "courses",
   template: `
       <h2>{{ title }}</h2>
       <ul>
-        <li *ngFor="let course of courses"></li> 
+        <li *ngFor="let course of courses">
+        {{ }}
+        </li> 
       </ul>
   `
 })

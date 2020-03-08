@@ -6,7 +6,7 @@ import { StoreModule } from "./store/store.module";
 import { StoreComponent } from "./store/store.component";
 import { CheckoutComponent } from "./store/checkout.component";
 import { CartDetailComponent } from "./store/cartDetail.component";
-import { DirectiveComponent } from "./features/codewithmosh/directive.component";
+import { DirectiveComponent } from "./features/codewithmosh/diretive.component";
 import { RouterModule } from "@angular/router";
 import { StoreFirstGuard } from "./storeFirst.guard";
 import { MaterialModule } from './components/shared/material.module';
@@ -65,7 +65,7 @@ import { MatInputModule, MatDatepickerModule, MatFormFieldModule, MatNativeDateM
   ],
   providers: [StoreFirstGuard],
 
-  declarations: [AppComponent, MainComponent],
+  declarations: [AppComponent, MainComponent, DirectiveComponent],
 
   bootstrap: [AppComponent]
 })
