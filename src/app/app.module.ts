@@ -11,6 +11,7 @@ import { RouterModule } from "@angular/router";
 import { StoreFirstGuard } from "./storeFirst.guard";
 import { MaterialModule } from './components/shared/material.module';
 import { MatInputModule, MatDatepickerModule, MatFormFieldModule, MatNativeDateModule } from '@angular/material';
+import { CoursesService } from './services/courses.service'
 
 @NgModule({
   imports: [
@@ -63,7 +64,7 @@ import { MatInputModule, MatDatepickerModule, MatFormFieldModule, MatNativeDateM
   exports: [
     MaterialModule
   ],
-  providers: [StoreFirstGuard],
+  providers: [StoreFirstGuard,],
 
   declarations: [AppComponent, MainComponent, DirectiveComponent],
 
