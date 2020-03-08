@@ -64,7 +64,7 @@ import { CoursesService } from './services/courses.service'
   exports: [
     MaterialModule
   ],
-  providers: [StoreFirstGuard,],
+  providers: [StoreFirstGuard, CoursesService],
 
   declarations: [AppComponent, MainComponent, DirectiveComponent],
 

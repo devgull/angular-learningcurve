@@ -11,6 +11,12 @@ import { Component } from '@angular/core';
         {{ course }}
         </li> 
       </ul>
+      <table>
+      <tr>
+      <!-- Attribute Binding !-->
+      <td [attr.colspan]="colSpan">2</td>
+      </tr>      
+      </table>
   `
 })
 
@@ -18,6 +24,7 @@ import { Component } from '@angular/core';
 export class DirectiveComponent{
   title = "List of titles";
   courses;
+  colSpan = 2;
 
   constructor(service: CoursesService){
     this.courses = service.getCourses();
