@@ -11,12 +11,18 @@ import { Component } from '@angular/core';
         {{ course }}
         </li> 
       </ul>
-      <table>
+      <table [border]="border">
       <tr>
       <!-- Attribute Binding !-->
-      <td [attr.colspan]="colSpan">2</td>
-      </tr>      
+      <td [attr.colspan]="colSpan">{{border}}</td>
+      </tr>  
+      <tr>
+        <!-- Attribute Binding !-->
+        <td (click)="addBorder()">1</td>
+        <td (click)="removeBorder()">2</td>
+      </tr>             
       </table>
+      <input type="number" [(ngModel)]="bindingString" />
   `
 })
 
@@ -25,6 +31,21 @@ export class DirectiveComponent{
   title = "List of titles";
   courses;
   colSpan = 2;
+  border = 1;
+
+  get bindingString(): string{
+    return this.border.toString();
+  }
+  set bindingString(_value: string){
+    this.border = parseInt(_value);
+  }
+
+  addBorder(){
+    this.border++;
+  }  
+  removeBorder(){
+    this.border--;
+  }
 
   constructor(service: CoursesService){
     this.courses = service.getCourses();
