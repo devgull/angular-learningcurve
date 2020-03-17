@@ -9,12 +9,12 @@
        <tr>
             <td>
                 <label>QR Code Value</label>
-                <input type="text">
+                <input type="text" [(value)]="qrValue">
             </td>
         </tr>
         <tr>
             <td>
-                <qr-code #qrRef [value]="qrValue" [size]="250" mime="image/png" padding="4"></qr-code>
+                <qr-code #qrRef (value)]="qrValue" [size]="250" mime="image/png" padding="4"></qr-code>
             </td>
         </tr>
         <tr>

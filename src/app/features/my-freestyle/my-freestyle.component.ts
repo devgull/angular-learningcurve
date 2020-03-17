@@ -10,7 +10,7 @@ export class MyFreestyleComponent{
   private qrValue: string;
 
   ngOnInit() {
-        this.qrValue = "QR";
+        this.qrValue = "QR Code";
     }
 
 }
