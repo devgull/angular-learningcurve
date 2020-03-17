@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
 import { MainComponent } from "./features/main.component";
+import { MyFreestyleComponent } from "./features/my-freestyle/my-freestyle.component";
 import { StoreModule } from "./store/store.module";
 import { StoreComponent } from "./store/store.component";
 import { CheckoutComponent } from "./store/checkout.component";
@@ -12,7 +13,8 @@ import { RouterModule } from "@angular/router";
 import { StoreFirstGuard } from "./storeFirst.guard";
 import { MaterialModule } from './components/shared/material.module';
 import { MatInputModule, MatDatepickerModule, MatFormFieldModule, MatNativeDateModule } from '@angular/material';
-import { CoursesService } from './services/courses.service'
+import { CoursesService } from './services/courses.service';
+import { QRCodeModule } from 'angular2-qrcode';
 
 @NgModule({
   imports: [
@@ -24,10 +26,15 @@ import { CoursesService } from './services/courses.service'
     MatFormFieldModule,
     MatNativeDateModule,
     FormsModule,
+    QRCodeModule,
     RouterModule.forRoot([
        {
         path: "main",
         component: MainComponent
+      },
+       {
+        path: "my-freestyle",
+        component: MyFreestyleComponent
       },
       {
         path: "store",
@@ -68,7 +75,7 @@ import { CoursesService } from './services/courses.service'
   ],
   providers: [StoreFirstGuard, CoursesService],
 
-  declarations: [AppComponent, MainComponent, DirectiveComponent],
+  declarations: [AppComponent, MainComponent, DirectiveComponent, MyFreestyleComponent],
 
   bootstrap: [AppComponent]
 })

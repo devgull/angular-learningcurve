@@ -1,0 +1,42 @@
+.mti-button{
+    width: 97%;
+}
+.btn__multiline-content--text-bottom {
+    line-height: 14px;
+    font-size: 12px;
+    opacity: .7;
+}
+.btn__multiline-content-wrapper span {
+    display: block;
+}
+.btn__multiline-content--text-top {
+    line-height: 17px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.btn__multiline-content-wrapper {
+    text-align: center;
+    margin: 0 5px;
+}
+.btn__multiline-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.btn__rounded--green {
+    background-color: #90c52d;
+    color: #fff;
+    margin: 0;
+    padding: 6px 12px;
+    width: 55%;
+}
+.btn__rounded {
+    display: inline-block;
+    border-radius: 100px;
+    text-decoration: none;
+    padding: 4px 12px;
+}
+.btn__rounded, .button {
+    text-transform: uppercase;
+}
