@@ -10,7 +10,7 @@ export class MyFreestyleComponent{
   private qrValue: string;
 
   ngOnInit() {
-        this.qrValue = "QR Code";
+        this.qrValue = "WIFI:T:WPA2;S:BENETON;P:xt0x0tex;;";
     }
 
   private downloadQRCode() {
