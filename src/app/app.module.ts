@@ -23,7 +23,7 @@ import { CoursesService } from './services/courses.service'
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,
-    
+    FormsModule
     RouterModule.forRoot([
        {
         path: "main",
