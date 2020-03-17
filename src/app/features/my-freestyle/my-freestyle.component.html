@@ -6,9 +6,15 @@
 
 <div>
     <table class="m-4">
+       <tr>
+            <td>
+                <label>QR Code Value</label>
+                <input type="text">
+            </td>
+        </tr>
         <tr>
             <td>
-                <qr-code #qrRef [value]="Pid" [size]="250" mime="image/png" padding="4"></qr-code>
+                <qr-code #qrRef [value]="qrValue" [size]="250" mime="image/png" padding="4"></qr-code>
             </td>
         </tr>
         <tr>

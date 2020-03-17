@@ -7,5 +7,10 @@ import { OnInit, Component, ViewChild, Injector, AfterViewInit, ElementRef, Temp
 })
 
 export class MyFreestyleComponent{
+  private qrValue: string;
+
+  ngOnInit() {
+        this.qrValue = "QR";
+    }
 
 }
