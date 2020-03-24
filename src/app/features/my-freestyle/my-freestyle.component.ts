@@ -1,7 +1,8 @@
-import { OnInit, Component, ViewChild, Injector, AfterViewInit, ElementRef, TemplateRef } from "@angular/core";
-import { FormGroup, FormBuilder, FormArray, Validators, FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { OnInit, Component, ViewChild, Injector, ElementRef, TemplateRef } from "@angular/core";
+import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
 import { BaseComponent } from '../../base.component'
 import { AccessLevel, Day, Stage } from '../../model/features/features.model';
+import { MoqService } from '../../services/moq.service'
 
 @Component({
     selector: 'my-freestyle',
@@ -10,7 +11,8 @@ import { AccessLevel, Day, Stage } from '../../model/features/features.model';
 })
 
 export class MyFreestyleComponent extends BaseComponent {
-  constructor(public formBuilder: FormBuilder, 
+  constructor(public moqService: MoqService,
+              public formBuilder: FormBuilder, 
               public injector: Injector){
       super(injector)
   }
@@ -20,7 +22,7 @@ export class MyFreestyleComponent extends BaseComponent {
   private day: Day[] = [];
   private stage: Stage[] = [];
 
-  @ViewChild('accessLevelModal',{ read: true, static:false })
+  @ViewChild('accessLevelModal', { read: false, static: false })
   public accessLevelModal: TemplateRef<any>;
 
   accessLevelForm: FormGroup;
@@ -32,7 +34,7 @@ export class MyFreestyleComponent extends BaseComponent {
         return this.accessLevelForm.get('stages') as FormArray;
     };
 
-  ngOnInit() {
+  ngOnInit() {        
         this.currentAccessLevel = new AccessLevel();
         this.qrValue = "WIFI:T:WPA;S:BENETON;P:xt0x0tex;;";
     }
@@ -47,7 +49,7 @@ export class MyFreestyleComponent extends BaseComponent {
                 stages: this.formBuilder.array([])
             }
         );
-
+        this.day = this.moqService.getRandomDays(5);
         const daysFGs = this.day.map(n => {
             let obj = {}; obj[n.uid] = (this.currentAccessLevel.days.find(m => m.uid == n.uid) != null);
             return this.formBuilder.group(obj)

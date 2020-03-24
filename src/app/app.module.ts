@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { ToastrModule } from 'ngx-toastr';
 import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
 import { MainComponent } from "./features/main.component";
@@ -17,6 +17,7 @@ import { StoreFirstGuard } from "./storeFirst.guard";
 import { MaterialModule } from './components/shared/material.module';
 import { MatInputModule, MatDatepickerModule, MatFormFieldModule, MatNativeDateModule } from '@angular/material';
 import { CoursesService } from './services/courses.service';
+import { MoqService } from './services/moq.service';
 import { QRCodeModule } from 'angular2-qrcode';
 import { MapToKeysPipe } from './pipe/maptokeys.pipe'
 
@@ -88,7 +89,7 @@ import { MapToKeysPipe } from './pipe/maptokeys.pipe'
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [StoreFirstGuard, CoursesService],
+  providers: [StoreFirstGuard, CoursesService, MoqService],
 
   declarations: [AppComponent, MainComponent, DirectiveComponent, MyFreestyleComponent, MapToKeysPipe],
 
