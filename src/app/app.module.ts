@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
 import { MainComponent } from "./features/main.component";
@@ -33,6 +34,11 @@ import { MapToKeysPipe } from './pipe/maptokeys.pipe'
     ReactiveFormsModule,
     BrowserAnimationsModule,
     QRCodeModule,
+    ToastrModule.forRoot({
+            timeOut: 3000,
+            positionClass: 'toast-bottom-left',
+            preventDuplicates: true,
+        }),
     RouterModule.forRoot([
        {
         path: "main",
