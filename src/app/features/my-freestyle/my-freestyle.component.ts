@@ -1,5 +1,7 @@
 import { OnInit, Component, ViewChild, Injector, AfterViewInit, ElementRef, TemplateRef } from "@angular/core";
-import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray, Validators, FormsModule,ReactiveFormsModule } from '@angular/forms';
+
+import { AccessLevel } from '@app/model/features/features.model';
 
 @Component({
     selector: 'my-freestyle',
@@ -10,8 +12,8 @@ import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
 export class MyFreestyleComponent{
   private qrValue: string;
   public currentAccessLevel: AccessLevel;
-  
-  @ViewChild('accessLevelModal')
+
+  @ViewChild('accessLevelModal',{ read: true, static:false })
   public accessLevelModal: TemplateRef<any>;
 
   accessLevelForm: FormGroup;
@@ -39,7 +41,7 @@ export class MyFreestyleComponent{
         );
 
         const daysFGs = this.registrationService.days.map(n => {
-            let obj = {}; obj[n.uid] = (this.registrationService.currentAccessLevel.days.find(m => m.uid == n.uid) != null);
+            let obj = {}; obj[n.uid] = (this.currentAccessLevel.days.find(m => m.uid == n.uid) != null);
             return this.formBuilder.group(obj)
         });
         const dayFormArray = this.formBuilder.array(daysFGs);

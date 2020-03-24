@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
-import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
 import { MainComponent } from "./features/main.component";
@@ -20,12 +21,14 @@ import { QRCodeModule } from 'angular2-qrcode';
   imports: [
     BrowserModule,
     StoreModule,
+    CommonModule,
     MaterialModule,
     MatInputModule,
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,
     FormsModule,
+    ReactiveFormsModule,
     QRCodeModule,
     RouterModule.forRoot([
        {
@@ -71,7 +74,10 @@ import { QRCodeModule } from 'angular2-qrcode';
     ])
   ],
   exports: [
-    MaterialModule
+    MaterialModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [StoreFirstGuard, CoursesService],
 
