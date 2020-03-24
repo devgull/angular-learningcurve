@@ -30,3 +30,8 @@ export class Stage {
   eventUid: string;
   name: string;
 }
+
+export class Range{
+  mi: number;
+  to: number;
+}

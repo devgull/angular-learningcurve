@@ -42,7 +42,7 @@ export class MyFreestyleComponent extends BaseComponent {
     public createForm() {
         this.accessLevelForm = this.formBuilder.group(
             {
-                id: 1,
+                id: this.currentAccessLevel.id,
                 uid: this.currentAccessLevel.uid,
                 name: [this.currentAccessLevel.name, Validators.required],
                 days: this.formBuilder.array([]),
@@ -50,6 +50,7 @@ export class MyFreestyleComponent extends BaseComponent {
             }
         );
         this.day = this.moqService.getRandomDays(5);
+        console.log(this.day);
         const daysFGs = this.day.map(n => {
             let obj = {}; obj[n.uid] = (this.currentAccessLevel.days.find(m => m.uid == n.uid) != null);
             return this.formBuilder.group(obj)
