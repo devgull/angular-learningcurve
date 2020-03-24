@@ -1,4 +1,5 @@
 import { OnInit, Component, ViewChild, Injector, AfterViewInit, ElementRef, TemplateRef } from "@angular/core";
+import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
 
 @Component({
     selector: 'my-freestyle',
@@ -8,9 +9,54 @@ import { OnInit, Component, ViewChild, Injector, AfterViewInit, ElementRef, Temp
 
 export class MyFreestyleComponent{
   private qrValue: string;
+  public currentAccessLevel: AccessLevel;
+  
+  @ViewChild('accessLevelModal')
+  public accessLevelModal: TemplateRef<any>;
+
+  accessLevelForm: FormGroup;
+
+   get days(): FormArray {
+        return this.accessLevelForm.get('days') as FormArray;
+    };
+   get stages(): FormArray {
+        return this.accessLevelForm.get('stages') as FormArray;
+    };
 
   ngOnInit() {
         this.qrValue = "WIFI:T:WPA;S:BENETON;P:xt0x0tex;;";
+    }
+
+    public createForm() {
+        this.accessLevelForm = this.formBuilder.group(
+            {
+                id: 1,
+                uid: this.registrationService.currentAccessLevel.uid,
+                name: [this.registrationService.currentAccessLevel.name, Validators.required],
+                days: this.formBuilder.array([]),
+                stages: this.formBuilder.array([])
+            }
+        );
+
+        const daysFGs = this.registrationService.days.map(n => {
+            let obj = {}; obj[n.uid] = (this.registrationService.currentAccessLevel.days.find(m => m.uid == n.uid) != null);
+            return this.formBuilder.group(obj)
+        });
+        const dayFormArray = this.formBuilder.array(daysFGs);
+        this.accessLevelForm.setControl('days', dayFormArray);
+
+        const stageFGs = this.registrationService.stages.map(n => {
+            let obj = {}; obj[n.uid] = (this.registrationService.currentAccessLevel.stages.find(m => m.uid == n.uid) != null);
+            return this.formBuilder.group(obj)
+        });
+        const stageFormArray = this.formBuilder.array(stageFGs);
+        this.accessLevelForm.setControl('stages', stageFormArray);
+    }
+
+    showAccessLevelModal(uid: string = null) {
+        this.registrationService.setCurrentAccessLevel(uid);
+        this.createForm();
+        this.openModal(this.accessLevelModal);
     }
 
   openCustomModalView(){

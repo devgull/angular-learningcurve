@@ -43,3 +43,50 @@
         </tr>
     </table>   
 </div>
+
+<ng-template #accessLevelModal>
+    <div mat-dialog-title>
+        <h1>Access Level</h1>
+    </div>
+    <mat-dialog-content>
+        <form class="margin-top-10" [formGroup]="accessLevelForm">
+            <div fxLayout="column">
+                <mat-form-field>
+                    <input type="text" matInput formControlName="name" placeholder="Name">
+                    <mat-error>
+                        <validation [fieldName]="accessLevelForm.controls.name"></validation>
+                    </mat-error>
+                </mat-form-field>
+                <div class="row">
+                    <div class="col-6 p-2" formArrayName="days">
+                        <div *ngFor="let day of days.controls; let i=index;" [formGroupName]="i" class="card m-1 p-1 bg-light">
+                            <div *ngFor="let key of day.controls | mapToKeys">
+                                <h5>
+                                    <mat-checkbox formControlName="{{key.key}}" class="example-margin">
+                                        {{getNameByKey(key.key, true)}}
+                                       <span class="small">({{this.getObjectByKey(key.key, true).eventDate | date:'dd.MM.yyyy'}})</span>
+                                    </mat-checkbox>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 p-2" formArrayName="stages">
+                        <div *ngFor="let stage of stages.controls; let i=index;" [formGroupName]="i" class="card m-1 p-1 bg-light">
+                            <div *ngFor="let key of stage.controls | mapToKeys">
+                                <h5>
+                                    <mat-checkbox formControlName="{{key.key}}" class="example-margin">
+                                        {{getNameByKey(key.key, false)}}
+                                    </mat-checkbox>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button class="mat-raised-button" (click)="closeModal()">Close</button>
+        <button color="accent" mat-raised-button (click)='saveAccessLevel()'>Save</button>
+    </mat-dialog-actions>
+</ng-template>
