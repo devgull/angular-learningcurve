@@ -54,7 +54,7 @@
                 <mat-form-field>
                     <input type="text" matInput formControlName="name" placeholder="Name">
                     <mat-error>
-                        <validation [fieldName]="accessLevelForm.controls.name"></validation>
+                        <!-- <validation [fieldName]="accessLevelForm.controls.name"></validation> -->
                     </mat-error>
                 </mat-form-field>
                 <div class="row">
@@ -63,8 +63,8 @@
                             <div *ngFor="let key of day.controls | mapToKeys">
                                 <h5>
                                     <mat-checkbox formControlName="{{key.key}}" class="example-margin">
-                                        {{getNameByKey(key.key, true)}}
-                                       <span class="small">({{this.getObjectByKey(key.key, true).eventDate | date:'dd.MM.yyyy'}})</span>
+                                        this is name
+                                       <span class="small">this is date</span>
                                     </mat-checkbox>
                                 </h5>
                             </div>
@@ -75,7 +75,7 @@
                             <div *ngFor="let key of stage.controls | mapToKeys">
                                 <h5>
                                     <mat-checkbox formControlName="{{key.key}}" class="example-margin">
-                                        {{getNameByKey(key.key, false)}}
+                                       this is name
                                     </mat-checkbox>
                                 </h5>
                             </div>

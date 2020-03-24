@@ -16,6 +16,7 @@ import { MaterialModule } from './components/shared/material.module';
 import { MatInputModule, MatDatepickerModule, MatFormFieldModule, MatNativeDateModule } from '@angular/material';
 import { CoursesService } from './services/courses.service';
 import { QRCodeModule } from 'angular2-qrcode';
+import { MapToKeysPipe } from './pipe/maptokeys.pipe'
 
 @NgModule({
   imports: [
@@ -81,7 +82,7 @@ import { QRCodeModule } from 'angular2-qrcode';
   ],
   providers: [StoreFirstGuard, CoursesService],
 
-  declarations: [AppComponent, MainComponent, DirectiveComponent, MyFreestyleComponent],
+  declarations: [AppComponent, MainComponent, DirectiveComponent, MyFreestyleComponent, MapToKeysPipe],
 
   bootstrap: [AppComponent]
 })
