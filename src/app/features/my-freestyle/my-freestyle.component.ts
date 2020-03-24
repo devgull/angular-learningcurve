@@ -1,6 +1,6 @@
 import { OnInit, Component, ViewChild, Injector, AfterViewInit, ElementRef, TemplateRef } from "@angular/core";
 import { FormGroup, FormBuilder, FormArray, Validators, FormsModule,ReactiveFormsModule } from '@angular/forms';
-
+import { BaseComponent } from '../../base.component'
 import { AccessLevel } from '@app/model/features/features.model';
 
 @Component({
@@ -9,7 +9,11 @@ import { AccessLevel } from '@app/model/features/features.model';
     styleUrls: ['my-freestyle.component.scss']
 })
 
-export class MyFreestyleComponent{
+export class MyFreestyleComponent extends BaseComponent {
+  constructor(public injector: Injector){
+      super()
+  }
+  
   private qrValue: string;
   public currentAccessLevel: AccessLevel;
 
@@ -55,14 +59,9 @@ export class MyFreestyleComponent{
         this.accessLevelForm.setControl('stages', stageFormArray);
     }
 
-    showAccessLevelModal(uid: string = null) {
-        this.registrationService.setCurrentAccessLevel(uid);
-        this.createForm();
-        this.openModal(this.accessLevelModal);
-    }
-
   openCustomModalView(){
-
+    this.createForm();
+    this.openModal(this.accessLevelModal);
   }
 
   //QR Code Start
