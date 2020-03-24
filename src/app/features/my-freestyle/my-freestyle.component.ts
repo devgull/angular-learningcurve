@@ -10,9 +10,14 @@ export class MyFreestyleComponent{
   private qrValue: string;
 
   ngOnInit() {
-        this.qrValue = "WIFI:T:WPA2;S:BENETON;P:xt0x0tex;;";
+        this.qrValue = "WIFI:T:WPA;S:BENETON;P:xt0x0tex;;";
     }
 
+  openCustomModalView(){
+
+  }
+
+  //QR Code Start
   private downloadQRCode() {
 
         let base64String: string = document.getElementsByTagName("qr-code")[0].getElementsByTagName('img')[0].src.split(',')[1];
@@ -30,7 +35,6 @@ export class MyFreestyleComponent{
             link.click();
         }
     }
-
     convertBase64ToBlobData(base64Data: string, contentType: string = 'image/png', sliceSize = 512) {
         const byteCharacters = atob(base64Data);
         const byteArrays = [];
@@ -51,5 +55,5 @@ export class MyFreestyleComponent{
         const blob = new Blob(byteArrays, { type: contentType });
         return blob;
     }
-
+  //QR Code End
 }
