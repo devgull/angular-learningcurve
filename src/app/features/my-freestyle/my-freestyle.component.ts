@@ -49,8 +49,8 @@ export class MyFreestyleComponent extends BaseComponent {
                 stages: this.formBuilder.array([])
             }
         );
-        this.day = this.moqService.getRandomDays(5);
-        console.log(this.day);
+        let rand = this.moqService.getRandomNumber({min: 5, max: 15});
+        this.day = this.moqService.getRandomDays(rand);
         const daysFGs = this.day.map(n => {
             let obj = {}; obj[n.uid] = (this.currentAccessLevel.days.find(m => m.uid == n.uid) != null);
             return this.formBuilder.group(obj)

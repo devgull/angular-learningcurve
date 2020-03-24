@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AccessLevel, Day, Stage } from '../model/features/features.model';
+import { AccessLevel, Day, Stage, Range } from '../model/features/features.model';
 
 @Injectable()
 export class MoqService{
@@ -16,8 +16,9 @@ export class MoqService{
     return days;
   }
 
-  public getRandomNumber(range: Range): number{
-    let rand = Math.floor(Math.random() * 200) - 100;
-    return 0;
+  public getRandomNumber(range: Range): number{  
+    let rand = Math.floor( (range.max - range.min)*Math.random() + range.min);
+
+    return rand;
   }
 }

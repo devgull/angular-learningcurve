@@ -32,6 +32,6 @@ export class Stage {
 }
 
 export class Range{
-  mi: number;
-  to: number;
+  min: number;
+  max: number;
 }
