@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
@@ -30,6 +31,7 @@ import { MapToKeysPipe } from './pipe/maptokeys.pipe'
     MatNativeDateModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     QRCodeModule,
     RouterModule.forRoot([
        {
